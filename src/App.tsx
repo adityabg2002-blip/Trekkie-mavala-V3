@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { MessageCircle } from 'lucide-react';
+import { Analytics } from '@vercel/analytics/react';
 import supabase from './lib/supabase';
 import { handleGoogleRedirect } from './lib/googleAuth';
 import { tr, setOverrides, setVisibility, isVisible } from './lib/i18n';
@@ -169,6 +170,7 @@ export default function App() {
   return (
     <AdminProvider>
       <AppInner />
+      <Analytics />
     </AdminProvider>
   );
 }
