@@ -1,0 +1,26 @@
+# Exclude redundant/legacy API routes so we stay within Vercel Hobby's
+# 12-serverless-function limit. All their functionality is consolidated into
+# api/data.js, api/auth.js and api/payment.js, and the frontend's apiShim
+# transparently rewrites old paths to these. Do NOT ship these as functions.
+
+api/_notify.js
+api/admin-config.js
+api/bookings.js
+api/business-settings.js
+api/contact-messages.js
+api/faqs.js
+api/gallery.js
+api/hikers.js
+api/otp.js
+api/paid-bookings.js
+api/payment-config.js
+api/razorpay-order.js
+api/razorpay-refund.js
+api/razorpay-verify.js
+api/razorpay-webhook.js
+api/reviews.js
+api/site-content.js
+api/tours.js
+api/trek-bookings.js
+api/treks.js
+api/upload.js
