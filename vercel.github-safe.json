@@ -1,0 +1,23 @@
+{
+  "$comment": "SAFE VERSION FOR GITHUB — rename this to vercel.json before pushing. It contains NO secrets. Add all environment variables in Vercel Dashboard → Settings → Environment Variables instead (see the deployment checklist). This file only keeps the rewrites that consolidate your API routes so you stay under Vercel's 12-function limit.",
+  "rewrites": [
+    { "source": "/api/treks", "destination": "/api/data?resource=treks" },
+    { "source": "/api/tours", "destination": "/api/data?resource=tours" },
+    { "source": "/api/gallery", "destination": "/api/data?resource=gallery" },
+    { "source": "/api/reviews", "destination": "/api/data?resource=reviews" },
+    { "source": "/api/faqs", "destination": "/api/data?resource=faqs" },
+    { "source": "/api/bookings", "destination": "/api/data?resource=bookings" },
+    { "source": "/api/contact-messages", "destination": "/api/data?resource=contact-messages" },
+    { "source": "/api/site-content", "destination": "/api/data?resource=site-content" },
+    { "source": "/api/business-settings", "destination": "/api/data?resource=business-settings" },
+    { "source": "/api/hikers", "destination": "/api/data?resource=hikers" },
+    { "source": "/api/admin-config", "destination": "/api/data?resource=admin-config" },
+    { "source": "/api/paid-bookings", "destination": "/api/data?resource=trek-bookings" },
+    { "source": "/api/trek-bookings", "destination": "/api/data?resource=trek-bookings" },
+    { "source": "/api/otp", "destination": "/api/auth" },
+    { "source": "/api/upload", "destination": "/api/auth?action=upload" },
+    { "source": "/api/razorpay-order", "destination": "/api/payment?action=order" },
+    { "source": "/api/razorpay-verify", "destination": "/api/payment?action=verify" },
+    { "source": "/api/razorpay-webhook", "destination": "/api/payment?action=webhook" }
+  ]
+}
