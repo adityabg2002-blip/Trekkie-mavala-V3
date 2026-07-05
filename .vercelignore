@@ -1,0 +1,43 @@
+# -----------------------------------------------------------------------------
+# .vercelignore — keep the deployment under the Vercel Hobby 12-function limit.
+#
+# The api/ directory contains 16 legacy duplicate routes and several
+# decommissioned stubs left over from an earlier architecture. They are dead
+# code (the frontend routes everything through the 3 consolidated functions via
+# src/lib/apiShim.ts) AND they are unguarded security bypasses. We exclude them
+# from the Vercel build so they are neither deployed as live endpoints nor
+# counted toward the serverless-function quota.
+#
+# LIVE functions that MUST deploy (do NOT list these):
+#   api/data.js      -> all CRUD (admin-guarded)
+#   api/payment.js   -> Razorpay order/verify/webhook
+#   api/auth.js      -> OTP/mobile auth + upload
+# Shared, non-route modules (imported by the above; underscore-safe):
+#   api/db-client.js, api/db-wake.js, api/_notify.js  (kept — imported, not routes)
+# -----------------------------------------------------------------------------
+
+# Legacy per-resource duplicates (bypassed the admin guard)
+api/bookings.js
+api/business-settings.js
+api/contact-messages.js
+api/faqs.js
+api/gallery.js
+api/hikers.js
+api/otp.js
+api/reviews.js
+api/site-content.js
+api/tours.js
+api/trek-bookings.js
+api/paid-bookings.js
+api/upload.js
+
+# Legacy Razorpay duplicates (missing server-side pricing / idempotency)
+api/razorpay-order.js
+api/razorpay-verify.js
+api/razorpay-webhook.js
+
+# Decommissioned / deprecated stubs
+api/razorpay-refund.js
+api/payment-config.js
+api/admin-config.js
+api/treks.js
